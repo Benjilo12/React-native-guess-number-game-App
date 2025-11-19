@@ -1,7 +1,37 @@
-import { View, TextInput, StyleSheet } from "react-native";
-import PrimaryButton from "../components/PrimaryButton";
+import { View, TextInput, StyleSheet, Alert } from "react-native";
+import PrimaryButton from "../components/ui/PrimaryButton";
+import { useState } from "react";
+import Colors from "../constants/colors";
 
-function StartGameScreen() {
+function StartGameScreen({ onPickNumber }) {
+  const [enteredNumber, setEnteredNumber] = useState();
+
+  //fxn to handle Textinput
+  function numberInputHandler(enteredText) {
+    setEnteredNumber(enteredText);
+  }
+
+  //fxn to reset number
+  function resetInputHandler() {
+    setEnteredNumber("");
+  }
+
+  //function to show alert if input num.. is not a num / less than 1 / gr8t an 99
+  function confirmInputHandler() {
+    const chosenNumber = parseInt(enteredNumber);
+
+    if (isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber > 99) {
+      //show alert....
+      Alert.alert(
+        "Invalid number!",
+        "Number has to be a number between 1 and 99.",
+        [{ text: "Okay", style: "destructive", onPress: resetInputHandler }]
+      );
+      return;
+    }
+
+    onPickNumber(chosenNumber);
+  }
   return (
     <View style={styles.inputContainer}>
       <TextInput
@@ -10,13 +40,15 @@ function StartGameScreen() {
         keyboardType="number-pad"
         autoCapitalize="none"
         autoCorrect={false}
+        value={enteredNumber}
+        onChangeText={numberInputHandler}
       />
       <View style={styles.buttonsContainer}>
         <View style={styles.buttonContainer}>
-          <PrimaryButton>Reset</PrimaryButton>
+          <PrimaryButton onPress={resetInputHandler}>Reset</PrimaryButton>
         </View>
         <View style={styles.buttonContainer}>
-          <PrimaryButton>Confirm</PrimaryButton>
+          <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
         </View>
       </View>
     </View>
@@ -32,7 +64,7 @@ const styles = StyleSheet.create({
     padding: 16,
     marginHorizontal: 24,
     marginTop: 100,
-    backgroundColor: "#410322ff",
+    backgroundColor: Colors.primary800,
     borderRadius: 8,
     elevation: 10,
     shadowColor: "black",
@@ -44,9 +76,9 @@ const styles = StyleSheet.create({
     height: 50,
     width: 50,
     fontSize: 27,
-    borderBottomColor: "#ddb52f",
+    borderBottomColor: Colors.accent500,
     borderBottomWidth: 2,
-    color: "#ddb52f",
+    color: Colors.accent500,
     marginVertical: 8,
     fontWeight: "bold",
     textAlign: "center",
