@@ -56,7 +56,7 @@ export default function App() {
 
   return (
     <>
-      <StatusBar animated={true} backgroundColor="#61dafb" />
+      <StatusBar animated={true} style="light" />
       <LinearGradient colors={["#4e0329", "#ddb52f"]} style={styles.rootScreen}>
         <ImageBackground
           source={require("./assets/images/background.png")}
