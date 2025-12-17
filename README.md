@@ -58,7 +58,9 @@ Scan the QR code with Expo Go on your phone or run in an emulator.
 
 ## Screenshots
 
-![App Screenshot](https://github.com/Benjilo12/React-native-guess-number-game-App/blob/11015422439fe0f8523bf8ed1ec4eac3c8105041/Screenshot_1765967287.png)
+![App Screenshot](https://github.com/Benjilo12/React-native-guess-number-game-App/blob/11015422439fe0f8523bf8ed1ec4eac3c8105041/Screenshot_1765967287.png)      ![App Screenshot](https://github.com/Benjilo12/React-native-guess-number-game-App/blob/270574bbc0d2cb2d02aa78067a23ae9c9edd80c5/Screenshot_1765967305.png)
+
+![App Screenshot](https://github.com/Benjilo12/React-native-guess-number-game-App/blob/270574bbc0d2cb2d02aa78067a23ae9c9edd80c5/Screenshot_1765967310.png)
 
 
 
